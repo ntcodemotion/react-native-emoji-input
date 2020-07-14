@@ -33,24 +33,24 @@ const {
 } = require('./emoji-data/compiled');
 
 const categoryIcon = {
-    fue: props => <Icon name="clock" type="material-community" {...props} />,
+    fue: props => <Icon name="clock" {...props} />,
     people: props => <Icon name="face" {...props} />,
     animals_and_nature: props => (
-        <Icon name="trees" type="foundation" {...props} />
+        <Icon name="trees" {...props} />
     ),
     food_and_drink: props => (
-        <Icon name="food" type="material-community" {...props} />
+        <Icon name="food" {...props} />
     ),
     activity: props => (
-        <Icon name="football" type="material-community" {...props} />
+        <Icon name="football" {...props} />
     ),
     travel_and_places: props => (
-        <Icon name="plane" type="font-awesome" {...props} />
+        <Icon name="plane" {...props} />
     ),
     objects: props => (
-        <Icon name="lightbulb" type="material-community" {...props} />
+        <Icon name="lightbulb" {...props} />
     ),
-    symbols: props => <Icon name="heart" type="foundation" {...props} />,
+    symbols: props => <Icon name="heart" {...props} />,
     flags: props => <Icon name="flag" {...props} />
 };
 
