@@ -33,25 +33,25 @@ const {
 } = require('./emoji-data/compiled');
 
 const categoryIcon = {
-    fue: props => <Icon name="clock" {...props} />,
-    people: props => <Icon name="face" {...props} />,
+    fue: props => <Text>🕐</Text>,
+    people: props => <Text>😀</Text>,
     animals_and_nature: props => (
-        <Icon name="trees" {...props} />
+        <Text>🌳</Text>
     ),
     food_and_drink: props => (
-        <Icon name="food" {...props} />
+        <Text>🍲</Text>
     ),
     activity: props => (
-        <Icon name="football" {...props} />
+        <Text>⚽</Text>
     ),
     travel_and_places: props => (
-        <Icon name="plane" {...props} />
+        <Text>✈️</Text>
     ),
     objects: props => (
-        <Icon name="lightbulb" {...props} />
+        <Text>💡</Text>
     ),
-    symbols: props => <Icon name="heart" {...props} />,
-    flags: props => <Icon name="flag" {...props} />
+    symbols: props => <Text>💜</Text>,
+    flags: props => <Text>🏁</Text>,
 };
 
 const { width: WINDOW_WIDTH } = Dimensions.get('window');
@@ -512,43 +512,43 @@ class EmojiInput extends React.PureComponent {
                     onScroll={this.handleScroll}
                 />
                 {!this.state.searchQuery &&
-                    this.props.showCategoryTab && (
-                        <TouchableWithoutFeedback>
-                            <View style={styles.footerContainer}>
-                                {_
-                                    .drop(
-                                        category,
-                                        this.props.enableFrequentlyUsedEmoji
-                                            ? 0
-                                            : 1
-                                    )
-                                    .map(({ key }) => (
-                                        <TouchableOpacity
-                                            key={key}
-                                            onPress={() =>
-                                                this.handleCategoryPress(key)
-                                            }
-                                            style={styles.categoryIconContainer}
-                                        >
-                                            <View>
-                                                {categoryIcon[key]({
-                                                    color:
-                                                        key ===
-                                                        this.state
-                                                            .currentCategoryKey
-                                                            ? this.props
-                                                                  .categoryHighlightColor
-                                                            : this.props
-                                                                  .categoryUnhighlightedColor,
-                                                    size: this.props
-                                                        .categoryFontSize
-                                                })}
-                                            </View>
-                                        </TouchableOpacity>
-                                    ))}
-                            </View>
-                        </TouchableWithoutFeedback>
-                    )}
+                this.props.showCategoryTab && (
+                    <TouchableWithoutFeedback>
+                        <View style={styles.footerContainer}>
+                            {_
+                                .drop(
+                                    category,
+                                    this.props.enableFrequentlyUsedEmoji
+                                        ? 0
+                                        : 1
+                                )
+                                .map(({ key }) => (
+                                    <TouchableOpacity
+                                        key={key}
+                                        onPress={() =>
+                                            this.handleCategoryPress(key)
+                                        }
+                                        style={styles.categoryIconContainer}
+                                    >
+                                        <View>
+                                            {categoryIcon[key]({
+                                                color:
+                                                    key ===
+                                                    this.state
+                                                        .currentCategoryKey
+                                                        ? this.props
+                                                            .categoryHighlightColor
+                                                        : this.props
+                                                            .categoryUnhighlightedColor,
+                                                size: this.props
+                                                    .categoryFontSize
+                                            })}
+                                        </View>
+                                    </TouchableOpacity>
+                                ))}
+                        </View>
+                    </TouchableWithoutFeedback>
+                )}
                 {selectedEmoji && (
                     <Animatable.View
                         animation="bounceIn"
